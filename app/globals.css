@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 245, 245;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 20;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  scroll-behavior: smooth;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-8 text-center relative;
+}
+
+.section-title::after {
+  content: "";
+  @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-blue-600 mt-2;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600;
+}
+
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-blue-600 text-white rounded-full font-medium transition-all duration-300 hover:bg-blue-700 hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-transparent border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-full font-medium transition-all duration-300 hover:bg-blue-600 hover:text-white;
+}
+
+.skill-tag {
+  @apply px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium m-1;
+}
+
+.timeline-item {
+  @apply relative pl-8 pb-8 border-l-2 border-blue-600;
+}
+
+/* Fixed timeline-dot class by using standard positioning instead of arbitrary values */
+.timeline-dot {
+  position: absolute;
+  left: -9px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background-color: #2563eb; /* blue-600 */
+}
+
+.timeline-date {
+  @apply text-sm text-gray-500 dark:text-gray-400 mb-1;
+}
+
+.timeline-title {
+  @apply text-xl font-bold mb-2;
+}
+
+.timeline-subtitle {
+  @apply text-gray-600 dark:text-gray-300 mb-2;
+}
+
+.timeline-content {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-700;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
